@@ -15,7 +15,7 @@ window.addEventListener('load', function (event) {
 
     navigator.mediaDevices.getUserMedia(
 
-        { "audio": false, "video": { "facingMode": "environment", "width": { "ideal": 640 }, "height": { "ideal": 480 } } }
+        { "audio": false, "video": { "facingMode": "environment", "width": { "ideal": 960 }, "height": { "ideal": 720 } } }
     ).then(
         function (stream) {
             video.srcObject = stream;
