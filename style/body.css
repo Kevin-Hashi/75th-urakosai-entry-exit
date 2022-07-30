@@ -1,0 +1,17 @@
+#QR-wrapper{
+    margin-top: 20px;
+}
+.image-canvas-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.image-canvas-border{
+    background-image: url("../img/qrcode.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#QR-msg{
+    margin-top: 10px;
+    text-align: center;
+    font-size: larger;
+}

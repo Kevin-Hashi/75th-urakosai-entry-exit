@@ -15,6 +15,7 @@
     <meta http-equiv="pragma" content="no-cache" />
     <link rel="stylesheet" href="./style/bootstrap-reboot.css" />
     <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/body.css" />
   </head>
 
   <body>
@@ -24,9 +25,13 @@
       <img class="header-logo" src="./img/75th-logo.webp" />
       <h1>第75回浦高祭 入退場管理システム</h1>
     </div>
-    <div id="wrapper">
-      <div id="msg">Unable to access video stream.</div>
-      <canvas id="canvas"></canvas>
+    <div id="QR-wrapper">
+      <div class="image-canvas-wrapper">
+        <div class="image-canvas-border">
+          <canvas id="image-canvas"></canvas>
+        </div>
+      </div>
+      <div id="QR-msg">Unable to access video stream.</div>
     </div>
   </body>
 </html>
