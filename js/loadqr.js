@@ -4,6 +4,7 @@ window.onload = (e) => {
     let ctx = canvas.getContext("2d");
     let msg = document.getElementById("QR-msg");
     let last_msg = "";
+    let detect_QR = false;
 
     const userMedia = { video: { facingMode: "environment" } };
     navigator.mediaDevices.getUserMedia(userMedia).then((stream) => {
@@ -34,12 +35,15 @@ window.onload = (e) => {
         });
         if (code) {
           //drawRect(code.location); // Rect
+          detect_QR = true;
           if(last_msg!=code.data){
           msg.innerText = code.data; // Data
           }
           last_msg = code.data;
         } else {
-          msg.innerText = "Detecting QR-Code...";
+          if (!detect_QR) {
+            msg.innerText = "Detecting QR-Code...";
+          }
         }
       }
       setTimeout(startTick, 150);
