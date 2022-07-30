@@ -53,7 +53,7 @@ window.addEventListener('load', function (event) {
         tmp_ctx.drawImage(prev, x1, y1, mwidth, mheight, 0, 0, mwidth, mheight);
 
         tmp.toBlob(function (blob) {
-            let reader = newidthFileReader();
+            let reader = new FileReader();
             reader.onload = function () {
                 let config = {
                     decoder: {
