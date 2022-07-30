@@ -1,0 +1,17 @@
+.header {
+  background-color: whitesmoke;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.header-logo {
+  margin-right: 50px;
+  height: 70px;
+  opacity: 0.7;
+}
+.header > h1 {
+  text-align: justify;
+}
