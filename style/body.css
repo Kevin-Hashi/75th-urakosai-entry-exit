@@ -15,3 +15,27 @@
     text-align: center;
     font-size: larger;
 }
+.button-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.button{
+    display: inline-block;
+    font-size: 220px;
+    border-radius: 20px;
+    width: 270px;
+    height: 270px;
+    line-height: 220px;
+    vertical-align: middle;
+}
+.entry-button{
+    color: #7F0000;
+    border: 20px solid #7F0000;
+    margin-right: 20px;
+}
+.exit-button{
+    color: #00007F;
+    border: 20px solid #00007F;
+    margin-left: 20px;
+}
