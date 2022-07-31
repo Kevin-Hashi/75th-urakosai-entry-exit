@@ -1,5 +1,9 @@
 #QR-wrapper{
-    margin-top: 20px;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 .image-canvas-wrapper{
     display: flex;
@@ -14,6 +18,14 @@
     margin-top: 10px;
     text-align: center;
     font-size: larger;
+}
+.button-wrapper-add-cancel{
+    margin-top: 20px;
+    padding-top: 30px;
+    z-index: 99999;
+    opacity: 0;
+    position: relative;
+    text-align: center;
 }
 .button-wrapper{
     display: flex;
@@ -38,4 +50,17 @@
     color: #00007F;
     border: 20px solid #00007F;
     margin-left: 20px;
+}
+.cancel-button{
+    display: inline-block;
+    font-size: 55px;
+    border-radius: 5px;
+    height: 65px;
+    line-height: 55px;
+    vertical-align: middle;
+    color: gray;
+    border: 5px solid gray;
+    margin: 20px auto;
+    padding-left: 5px;
+    padding-right: 5px;
 }

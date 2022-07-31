@@ -1,3 +1,4 @@
+var hideButton;
 window.onload = (e) => {
     let video = document.createElement("video");
     let canvas = document.getElementById("image-canvas");
@@ -5,6 +6,23 @@ window.onload = (e) => {
     let msg = document.getElementById("QR-msg");
     let last_msg = "";
     let detect_QR = false;
+    let startTick;
+    let startTickId;
+    const waitMsg = "Detecting QR-Code...";
+    const canvasWrapper = document.getElementById("QR-wrapper");
+    const buttonWrapper = document.getElementById("button-wrapper-add-cancel");
+    const hideKey = [{ opacity: 1 }, { opacity: 0 }];
+    const showKey = [{ opacity: 0 }, { opacity: 1 }];
+    const options = { fill: "forwards", duration: 500, easing: "ease" };
+    function showButton() {
+        canvasWrapper.animate(hideKey, options);
+        buttonWrapper.animate(showKey, options);
+    }
+    hideButton = function() {
+        canvasWrapper.animate(showKey, options);
+        buttonWrapper.animate(hideKey, options);
+        startTickId = setInterval(startTick, 150);
+    }
 
     const userMedia = { video: { facingMode: "environment" } };
     navigator.mediaDevices.getUserMedia(userMedia).then((stream) => {
@@ -12,10 +30,10 @@ window.onload = (e) => {
       video.setAttribute("playsinline", true);
       video.play();
       msg.innerText = "Loading video...";
-      startTick();
+      startTickId = setInterval(startTick, 150);
     });
 
-    function startTick() {
+    startTick=function() {
       if (video.readyState === video.HAVE_ENOUGH_DATA) {
         const window_width = document.documentElement.clientWidth;
         const window_height = document.documentElement.clientHeight;
@@ -34,34 +52,20 @@ window.onload = (e) => {
           inversionAttempts: "dontInvert",
         });
         if (code) {
-          //drawRect(code.location); // Rect
           detect_QR = true;
           if(last_msg!=code.data){
-          msg.innerText = code.data; // Data
+          msg.innerText = code.data;
           }
           last_msg = code.data;
+          clearInterval(startTickId);
+          showButton();
         } else {
           if (!detect_QR) {
-            msg.innerText = "Detecting QR-Code...";
+            if (last_msg != waitMsg) {
+              msg.innerText = waitMsg;
+            }
           }
         }
       }
-      setTimeout(startTick, 150);
-    }
-
-    function drawRect(location) {
-      drawLine(location.topLeftCorner, location.topRightCorner);
-      drawLine(location.topRightCorner, location.bottomRightCorner);
-      drawLine(location.bottomRightCorner, location.bottomLeftCorner);
-      drawLine(location.bottomLeftCorner, location.topLeftCorner);
-    }
-
-    function drawLine(begin, end) {
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = "#FF3B58";
-      ctx.beginPath();
-      ctx.moveTo(begin.x, begin.y);
-      ctx.lineTo(end.x, end.y);
-      ctx.stroke();
     }
   };
