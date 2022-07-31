@@ -27,6 +27,7 @@ window.onload = (e) => {
         msg.innerText = code.data; // Data
       } else {
         msg.innerText = "Detecting QR-Code...";
+        // ボタンの表示し、押されたらwriteSpreadSheetを呼び出す
       }
     }
     setTimeout(startTick, 150);
