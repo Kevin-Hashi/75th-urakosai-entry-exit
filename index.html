@@ -1,6 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head lang="ja">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-language" content="ja" />
+    <title>浦和高校 文化祭企画 入退場管理</title>
+    <meta name="author" content="浦和高校 プログラミング研究会" />
+    <meta name="owner" content="浦和高校 プログラミング研究会" />
+    <meta name="designer" content="Kevin-Hashi hiromi1630" />
+    <meta
+      name="copyright"
+      content="Copyright (C) 2022 浦和高校 プログラミング研究会"
+    />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" href="./style/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/body.css" />
+  </head>
+
   <body>
-    <h1>第75回浦高祭 入退場管理システム</h1>
+    <script src="./js/jsQR.js"></script>
+    <script src="./js/loadqr.js"></script>
+    <script src="./js/main.js"></script>
+    <div class="header">
+      <img class="header-logo" src="./img/75th-logo.webp" />
+      <h1>第75回浦高祭 入退場管理システム</h1>
+    </div>
+    <div class="button-wrapper-add-cancel" id="button-wrapper-add-cancel">
+      <div class="button-wrapper" id="button-wrapper">
+        <p class="entry-button button noselect" onclick="clickEntry()">入</p>
+        <p class="exit-button button noselect" onclick="clickExit()">退</p>
+      </div>
+      <p class="cancel-button noselect" onclick="hideButton()">キャンセル</p>
+    </div>
+    <div id="QR-wrapper">
+      <div class="image-canvas-wrapper">
+        <div class="image-canvas-border">
+          <canvas id="image-canvas"></canvas>
+        </div>
+      </div>
+      <div id="QR-msg">Unable to access video stream.</div>
+    </div>
   </body>
 </html>
